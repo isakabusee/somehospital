@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from 'semantic-ui-react'
 
 
 
@@ -28,13 +29,21 @@ const Input = () => {
        }
    
       ])
+      
     return (
         <div>
             <div className="todoList">
-                {todos.map((todo, index) => (
+                {/* {todos.map((todo, index) => (
                     console.log(todos),
                     <Todo key={index} index={index} todo={todo} />
-                ))}
+                ))} */}
+
+                {todos.map(el => {
+                    return (
+                        <div key={el.task}></div>
+                    );
+                    
+                })}
             </div>
             <h1>This should work!</h1>
            <input></input>
