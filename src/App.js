@@ -1,18 +1,10 @@
 import { useState } from 'react';
-import Input from './components/Input'
+// import Input from './components/Input'
 import './App.css';
 import { Button, CommentActions, Container, Grid, Header, List } from 'semantic-ui-react';
 import contacts from "./data.json"
 
-// import mydata from '../public/data.json';
 
-
-
-// function Task({mytask, index}){
-//   return(
-//     <div className='mytasks'>{mytask.text}</div>
-//   )
-// }
 
 function App() {
   const [ publicData, setPublicData ] = useState({});
@@ -30,28 +22,16 @@ function App() {
       isComplete: false
     }
   ])
+  const [phrase, setPhrase] = useState("");
 
-  
-//   const welcome = () => {
-//     return (
-//        <span>Welcome{headerText}!</span> 
-//     )
-// }
-// const displayData = () => {
-//   const headerAttr = {
-//     "Content-Type": "application/json",
-//     Accept: "application/json",
-//   };
-// }
+  const onSubmit=(e)=>{
+    e.preventDefault()
+  }
+
+ 
   return (
     <div className="App">
       <h1> Hello world!</h1>
-      {/* <div className="some-task">
-        { mytask.map((mytask, index) => (
-          console.log(mytask),
-          <Task key={index} index={index} mytask={mytask} />
-        ))}
-      </div> */}
       <Container>
         <Grid>
           <Grid.Row>
@@ -74,7 +54,10 @@ function App() {
           </Grid.Row>
         </Grid>
       </Container>
-      <Input />
+      <div>
+      <input placeholder="anything you want" value={phrase} onChange={((e)=> setPhrase(e.target.value))}/>
+      <button onClick={onSubmit}>Submit</button>
+      </div>
     </div>
   );
 }
